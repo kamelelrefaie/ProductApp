@@ -1,4 +1,4 @@
-package com.example.productapp
+package com.example.productapp.presentaion
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.productapp.presentaion.navigation.setUpNavGraph
 import com.example.productapp.ui.theme.ProductAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+
+                    setUpNavGraph(navHostController = navController)
                 }
             }
         }
